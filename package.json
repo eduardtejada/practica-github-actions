@@ -1,0 +1,18 @@
+{
+  "name": "practica-github-actions",
+  "version": "1.0.0",
+  "description": "Práctica de CI con GitHub Actions y notificaciones en ntfy.sh",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "test": "node index.js"
+  },
+  "keywords": [
+    "devops",
+    "itla",
+    "github-actions",
+    "ntfy"
+  ],
+  "author": "",
+  "license": "MIT"
+}

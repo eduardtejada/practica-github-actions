@@ -1,0 +1,33 @@
+name: Alerta de Notificación CI
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  notificar:
+    name: Ejecutar Hola Mundo y Enviar Notificación
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Clonar el repositorio
+        uses: actions/checkout@v4
+
+      - name: Configurar Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Ejecutar programa Hola Mundo
+        run: node index.js
+
+      - name: Enviar notificación a ntfy.sh
+        if: always()
+        run: |
+          curl \
+            -H "Title: GitHub Actions - Despliegue en main" \
+            -H "Priority: default" \
+            -H "Tags: white_check_mark,rocket" \
+            -d "Hola Mundo ejecutado correctamente. Se subió código a la rama main por ${{ github.actor }} en ${{ github.repository }}." \
+            https://ntfy.sh/devops-itla
