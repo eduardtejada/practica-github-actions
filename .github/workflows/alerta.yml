@@ -26,8 +26,7 @@ jobs:
         if: always()
         run: |
           curl \
-            -H "Title: GitHub Actions - Despliegue en main" \
+            -H "Title: Notificacion GitHub Actions - Despliegue en main" \
             -H "Priority: default" \
-            -H "Tags: white_check_mark,rocket" \
-            -d "Hola Mundo ejecutado correctamente. Se subió código a la rama main por ${{ github.actor }} en ${{ github.repository }}." \
+            -d "Hola Mundo ejecutado correctamente. Se subio codigo a la rama main por ${{ github.actor }} en ${{ github.repository }}." \
             https://ntfy.sh/devops-itla
